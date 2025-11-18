@@ -6,10 +6,10 @@ import { CheckCircle, Star, Heart, Truck } from "lucide-react";
 
 export default function Home() {
   const features = [
-    { icon: <CheckCircle className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Natural Formula", desc: "Carefully crafted from natural ingredients to nourish your skin." },
-    { icon: <Star className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Expert Approved", desc: "Trusted by skincare experts for effectiveness and safety." },
-    { icon: <Heart className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Gentle on Skin", desc: "Soft and soothing formula, perfect for all skin types." },
-    { icon: <Truck className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Fast Shipping", desc: "Get your favorite products delivered quickly and safely." },
+    { icon: <CheckCircle className="w-8 h-8 text-black dark:text-white mx-auto" />, title: "Natural Formula", desc: "Carefully crafted from natural ingredients to nourish your skin." },
+    { icon: <Star className="w-8 h-8 text-black dark:text-white mx-auto" />, title: "Expert Approved", desc: "Trusted by skincare experts for effectiveness and safety." },
+    { icon: <Heart className="w-8 h-8 text-black dark:text-white mx-auto" />, title: "Gentle on Skin", desc: "Soft and soothing formula, perfect for all skin types." },
+    { icon: <Truck className="w-8 h-8 text-black dark:text-white mx-auto" />, title: "Fast Shipping", desc: "Get your favorite products delivered quickly and safely." },
   ];
 
   return (
