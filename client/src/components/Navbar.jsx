@@ -29,26 +29,26 @@ export default function Navbar() {
           <Droplet className="w-7 h-7 text-black dark:text-white" />
         </Link>
 
-        <div className="absolute left-1/2 -translate-x-1/2 text-xl font-bold text-gray-900 dark:text-white">
+        <div className="absolute left-1/2 -translate-x-1/2 text-xl font-bold text-black dark:text-white">
           Essence of Risin
         </div>
 
         <div className="hidden md:flex items-center gap-5">
           {currentUser ? (
-            <button onClick={logout} className="text-gray-900 dark:text-white hover:text-red-500">
+            <button onClick={logout} className="text-gray-900 dark:text-white hover:text-red-500 dark:hover:text-red-400">
               <User className="w-6 h-6" />
             </button>
           ) : (
-            <Link to="/login" className="text-gray-900 dark:text-white hover:text-green-500">
+            <Link to="/login" className="text-gray-900 dark:text-white hover:text-green-500 dark:hover:text-green-400">
               <User className="w-6 h-6" />
             </Link>
           )}
 
-          <Link to="/cart" className="text-gray-900 dark:text-white hover:text-yellow-500">
+          <Link to="/cart" className="text-gray-900 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400">
             <ShoppingCart className="w-6 h-6" />
           </Link>
 
-          <button onClick={toggleTheme} className="text-gray-900 dark:text-white">
+          <button onClick={toggleTheme} className="text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400">
             {dark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
         </div>

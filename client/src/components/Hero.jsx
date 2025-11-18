@@ -22,19 +22,19 @@ export default function Hero() {
       />
 
       {/* Overlay for readability */}
-      <div className="absolute inset-0 dark:bg-black/40 -top-20 left-0 w-full h-[calc(100%+5rem)] object-cover z-0"></div>
+      <div className="absolute inset-0 bg-black/20 dark:bg-black/60 -top-20 left-0 w-full h-[calc(100%+5rem)] object-cover z-0"></div>
 
       {/* Hero content slightly below center */}
       <div className="relative z-20 flex flex-col items-center justify-center h-full text-center px-4">
         <h1 className="text-5xl md:text-6xl font-bold text-white drop-shadow-lg mb-6">
           Natural Castor Oil for Glowing Skin
         </h1>
-        <p className="text-lg md:text-xl text-white/90 max-w-2xl mb-8 drop-shadow-md">
+        <p className="text-lg md:text-xl text-white/70 max-w-2xl mb-8 drop-shadow-md">
           Explore our premium cold-pressed castor oil products for hydration, repair, and natural beauty.
         </p>
         <a
           href="#featured"
-          className="px-8 py-3 bg-yellow-500 hover:bg-yellow-400 rounded-full font-semibold text-lg shadow-lg"
+          className="px-8 py-3 text-white rounded-full font-semibold text-lg shadow-lg backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 border border-black/10"
         >
           Explore
         </a>
@@ -44,7 +44,7 @@ export default function Hero() {
       <div className="absolute bottom-6 w-full flex justify-center z-20">
         <button
           onClick={handleScrollDown}
-          className="animate-bounce text-white"
+          className="fixed bottom-4 left-1/2 -translate-x-1/2 z-50 animate-bounce text-white"
           aria-label="Scroll Down"
         >
           <ChevronDown className="w-8 h-8" />
