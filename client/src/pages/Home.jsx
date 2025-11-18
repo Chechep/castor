@@ -2,26 +2,28 @@ import Hero from "../components/Hero";
 import ProductCard from "../components/ProductCard";
 import { products } from "../data/products";
 import { motion } from "framer-motion";
+import { CheckCircle, Star, Heart, Truck } from "lucide-react";
 
 export default function Home() {
-  const reasons = [
-    { title: "Gentle on Skin", desc: "Organic ingredients nourish and protect your skin without harsh chemicals." },
-    { title: "Eco-Friendly", desc: "Made from sustainable sources that are good for the planet." },
-    { title: "Rich in Nutrients", desc: "Packed with natural vitamins and antioxidants for healthy skin." },
-    { title: "Free from Toxins", desc: "No parabens, sulfates, or synthetic fragrances that can irritate skin." },
+  const features = [
+    { icon: <CheckCircle className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Natural Formula", desc: "Carefully crafted from natural ingredients to nourish your skin." },
+    { icon: <Star className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Expert Approved", desc: "Trusted by skincare experts for effectiveness and safety." },
+    { icon: <Heart className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Gentle on Skin", desc: "Soft and soothing formula, perfect for all skin types." },
+    { icon: <Truck className="w-8 h-8 text-yellow-500 mx-auto" />, title: "Fast Shipping", desc: "Get your favorite products delivered quickly and safely." },
   ];
 
   return (
     <div className="relative top-0">
       <Hero />
 
-      {/* 4 Reasons Section */}
-      <section id="reasons" className="max-w-6xl mx-auto px-6 py-16">
+      {/* Feature Section */}
+      <section id="feature" className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl md:text-4xl font-bold text-center mb-12">
-          Why Choose Our Organic Products
+          Why Choose Our Products
         </h2>
-        <div className="grid md:grid-cols-4 gap-8">
-          {reasons.map((r, i) => (
+
+        <div className="grid md:grid-cols-4 gap-8 mb-12">
+          {features.map((f, i) => (
             <motion.div
               key={i}
               className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl rounded-xl p-6 text-center shadow-lg"
@@ -30,8 +32,9 @@ export default function Home() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: i * 0.2 }}
             >
-              <h3 className="text-xl font-semibold mb-2">{r.title}</h3>
-              <p className="text-gray-700 dark:text-gray-300">{r.desc}</p>
+              {f.icon}
+              <h3 className="text-xl font-semibold mt-4">{f.title}</h3>
+              <p className="text-gray-700 dark:text-gray-300 mt-2">{f.desc}</p>
             </motion.div>
           ))}
         </div>
@@ -41,7 +44,7 @@ export default function Home() {
       <section id="featured" className="max-w-6xl mx-auto px-6 py-16">
         <h2 className="text-3xl font-semibold mb-8">Featured Products</h2>
         <div className="grid md:grid-cols-3 gap-6">
-          {products.slice(0, 6).map((p) => (
+          {products.slice(0, 9).map((p) => (
             <ProductCard key={p.id} product={p} />
           ))}
         </div>

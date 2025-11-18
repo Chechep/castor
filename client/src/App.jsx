@@ -7,6 +7,7 @@ import Login from "./pages/Login";
 import Signup from "./pages/Signup";
 import RecoverPassword from "./pages/RecoverPassword";
 import Cart from "./pages/Cart";
+import Feature from "./pages/Feature";
 
 export default function App() {
   return (
@@ -21,6 +22,7 @@ export default function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/signup" element={<Signup />} />
         <Route path="/recover" element={<RecoverPassword />} />
+        <Route path="/feature" element={<Feature />} />
       </Routes>
     </div>
   );
