@@ -9,6 +9,7 @@ import Cart from "./pages/Cart";
 import Feature from "./pages/Feature";
 import Cashout from "./pages/Cashout";
 import About from "./pages/About";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -26,6 +27,7 @@ export default function App() {
         <Route path="/cashout/:id" element={<Cashout />} />
         <Route path="/about" element={<About />} />
       </Routes>
+      <Footer />
     </div>
   );
 }
