@@ -5,22 +5,39 @@ export default function ProductCard({ product, onOpenDetail }) {
   const { addToCart } = useCart();
 
   return (
-    <div className="p-4 border rounded-xl shadow-sm bg-white dark:bg-black">
-      <img
-        src={product.image}
-        alt={product.name}
-        className="w-full h-48 object-cover rounded-xl mb-3 cursor-pointer"
-        onClick={onOpenDetail}
-      />
+    <div
+      className="
+        relative p-4 border rounded-2xl bg-white dark:bg-black
+        shadow-sm hover:shadow-lg transition-shadow duration-300
+        transform hover:-translate-y-2 hover:scale-105
+        group overflow-hidden
+      "
+    >
+      {/* IMAGE */}
+      <div className="overflow-hidden rounded-xl">
+        <img
+          src={product.image}
+          alt={product.name}
+          className="
+            w-full h-56 object-cover rounded-xl transition-transform duration-500 
+            group-hover:scale-110
+          "
+        />
+      </div>
 
+      {/* CONTENT */}
       <h2
-        className="font-semibold text-lg cursor-pointer"
+        className="font-semibold text-lg mt-3 cursor-pointer transition-colors duration-300 hover:text-yellow-500"
         onClick={onOpenDetail}
       >
         {product.name}
       </h2>
 
       <p className="text-sm opacity-70">{product.size}</p>
+
+      {/* ALWAYS VISIBLE DESCRIPTION */}
+      <p className="text-sm opacity-90 mt-1">{product.description}</p>
+
       <p className="font-bold mt-2">Ksh {product.price}</p>
 
       <button
