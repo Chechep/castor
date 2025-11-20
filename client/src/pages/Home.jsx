@@ -2,6 +2,7 @@ import Hero from "../components/Hero";
 import Products from "../pages/Products";
 import { motion } from "framer-motion";
 import Feature from "./Feature";
+import About from "../pages/About";
 
 export default function Home() {
   return (
@@ -9,6 +10,7 @@ export default function Home() {
       <Hero />
       <Feature />
       <Products />
+      <About />
     </div>
   );
 }
