@@ -51,7 +51,7 @@ export default function Footer() {
       </div>
 
       {/* Bottom Line */}
-      <div className="border-t border-gray-700 mt-12 pt-6 text-center text-gray-500 text-sm">
+      <div className="mt-12 pt-6 text-center text-gray-500 text-sm">
         © {new Date().getFullYear()} Essence of Risin. All rights reserved.
       </div>
     </footer>
