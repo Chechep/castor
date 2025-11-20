@@ -10,48 +10,24 @@ import soap from "../assets/products/soap.jpg";
 
 export const products = [
   {
-    id: 1,
-    name: "Pure Cold-Pressed Castor Oil",
-    price: 650,
-    size: "100ml",
-    image: oil1,
-    description: "Hydrates and repairs dry and damaged skin."
-  },
-  {
-    id: 2,
-    name: "Castor Skin Serum",
-    price: 900,
-    size: "50ml",
-    image: serum,
-    description: "Anti-acne serum with castor oil and vitamin E."
-  },
-  {
-    id: 3,
-    name: "Castor Lip Balm",
-    price: 300,
-    size: "15g",
-    image: balm,
-    description: "Softens and rejuvenates dry lips."
-  },
-  {
-    id: 4,
-    name: "Castor Moisture Cream",
-    price: 780,
-    size: "100g",
-    image: cream,
-    description: "Full-body moisture with castor + shea."
-  },
-  {
     id: 5,
-    name: "Castor Facial Cleanser",
+    name: "Facial Cleanser",
     price: 550,
     size: "120ml",
     image: cleanser,
     description: "Gentle deep-clean with castor extract."
   },
   {
+    id: 2,
+    name: "Skin Serum",
+    price: 900,
+    size: "50ml",
+    image: serum,
+    description: "Anti-acne serum with castor oil and vitamin E."
+  },
+  {
     id: 6,
-    name: "Castor Anti-Blemish Oil",
+    name: "Anti-Blemish Oil",
     price: 1100,
     size: "30ml",
     image: blemish,
@@ -59,7 +35,7 @@ export const products = [
   },
   {
     id: 7,
-    name: "Castor Body Butter",
+    name: "Body Butter",
     price: 1050,
     size: "200g",
     image: butter,
@@ -67,7 +43,7 @@ export const products = [
   },
   {
     id: 8,
-    name: "Castor Foot Repair Balm",
+    name: "Foot Repair Balm",
     price: 450,
     size: "80g",
     image: foot,
@@ -75,10 +51,34 @@ export const products = [
   },
   {
     id: 9,
-    name: "Castor Acne Control Soap",
+    name: "Acne Control Soap",
     price: 250,
     size: "90g",
     image: soap,
     description: "Cleans acne-prone skin gently."
+  },
+  {
+    id: 1,
+    name: "Pure Cold-Pressed Oil",
+    price: 650,
+    size: "100ml",
+    image: oil1,
+    description: "Hydrates and repairs dry and damaged skin."
+  },
+  {
+    id: 3,
+    name: "Lip Balm",
+    price: 300,
+    size: "15g",
+    image: balm,
+    description: "Softens and rejuvenates dry lips."
+  },
+  {
+    id: 4,
+    name: "Moisture Cream",
+    price: 780,
+    size: "100g",
+    image: cream,
+    description: "Full-body moisture with castor + shea."
   },
 ];

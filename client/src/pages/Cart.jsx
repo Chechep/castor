@@ -1,39 +1,41 @@
-import { useState } from "react";
-import { ShoppingCart } from "lucide-react";
+import { useCart } from "../context/CartContext";
 
 export default function Cart() {
-  const [cartItems, setCartItems] = useState([]);
-
-  const addToCart = (product) => {
-    setCartItems((prev) => [...prev, product]);
-  };
+  const { cartItems } = useCart();
 
   return (
-    <div className="p-6">
-      <h1 className="text-2xl font-semibold flex items-center gap-2">
-        <ShoppingCart className="w-6 h-6" /> Your Cart
-      </h1>
+    <div className="p-6 max-w-3xl mx-auto">
+      <h1 className="text-2xl font-bold mb-4">Your Cart</h1>
 
       {cartItems.length === 0 ? (
-        <p className="opacity-70 mt-2">Your cart is empty.</p>
+        <p>Your cart is empty.</p>
       ) : (
-        <ul className="mt-4 space-y-2">
-          {cartItems.map((item, index) => (
+        <ul className="space-y-3">
+          {cartItems.map((item) => (
             <li
-              key={index}
-              className="flex justify-between items-center border p-2 rounded-lg"
+              key={item.id}
+              className="flex justify-between items-center border p-3 rounded-lg"
             >
-              <span>{item.name}</span>
-              <span className="font-bold">Ksh {item.price}</span>
+              <span>
+                {item.name} x {item.quantity}
+              </span>
+              <span className="font-bold">
+                Ksh {item.price * item.quantity}
+              </span>
             </li>
           ))}
         </ul>
       )}
 
-      {/* Example: passing addToCart to ProductCard */}
-      {/* 
-      <ProductCard product={products[0]} onAddToCart={addToCart} /> 
-      */}
+      {cartItems.length > 0 && (
+        <p className="mt-4 text-xl font-bold">
+          Total: Ksh{" "}
+          {cartItems.reduce(
+            (acc, item) => acc + item.price * item.quantity,
+            0
+          )}
+        </p>
+      )}
     </div>
   );
 }
