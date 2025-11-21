@@ -14,21 +14,24 @@ import TermsAndPolicies from './pages/TermsAndPolicies';
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
       <Navbar />
-
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/products" element={<Products />} />
-        <Route path="/cart" element={<Cart />} />
-        <Route path="/login" element={<Login />} />
-        <Route path="/signup" element={<Signup />} />
-        <Route path="/recover" element={<RecoverPassword />} />
-        <Route path="/feature" element={<Feature />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/checkout" element={<Cashout />} />
-        <Route path="/terms" element={<TermsAndPolicies />} />
-      </Routes>
+      
+      <main className="flex-1">
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/products" element={<Products />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/login" element={<Login />} />
+          <Route path="/signup" element={<Signup />} />
+          <Route path="/recover" element={<RecoverPassword />} />
+          <Route path="/feature" element={<Feature />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/checkout" element={<Cashout />} />
+          <Route path="/terms" element={<TermsAndPolicies />} />
+        </Routes>
+      </main>
+      
       <Footer />
     </div>
   );
