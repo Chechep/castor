@@ -10,14 +10,6 @@ import soap from "../assets/products/soap.jpg";
 
 export const products = [
   {
-    id: 5,
-    name: "Facial Cleanser",
-    price: 550,
-    size: "120ml",
-    image: cleanser,
-    description: "Gentle deep-clean from castor extract."
-  },
-  {
     id: 2,
     name: "Skin Serum",
     price: 900,
@@ -48,6 +40,14 @@ export const products = [
     size: "80g",
     image: foot,
     description: "Repairs cracked heels quickly."
+  },
+  {
+    id: 5,
+    name: "Facial Cleanser",
+    price: 550,
+    size: "120ml",
+    image: cleanser,
+    description: "Gentle deep-clean from castor extract."
   },
   {
     id: 9,
@@ -81,4 +81,5 @@ export const products = [
     image: cream,
     description: "Full-body moisture with castor + shea."
   },
+
 ];

@@ -35,7 +35,7 @@ export default function Feature() {
         {features.map((f, i) => (
           <motion.div
             key={i}
-            className="bg-white/50 dark:bg-gray-900/50 backdrop-blur-xl rounded-xl p-6 text-center shadow-lg"
+            className="bg-white/50 dark:bg-black backdrop-blur-xl rounded-xl p-6 text-center shadow-lg"
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
