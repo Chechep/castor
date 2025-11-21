@@ -7,9 +7,10 @@ import Signup from "./pages/Signup";
 import RecoverPassword from "./pages/RecoverPassword";
 import Cart from "./pages/Cart";
 import Feature from "./pages/Feature";
-import Cashout from "./pages/Cashout";
+import Cashout from "./pages/Checkout";
 import About from "./pages/About";
 import Footer from "./components/Footer";
+import TermsAndPolicies from './pages/TermsAndPolicies';
 
 export default function App() {
   return (
@@ -24,8 +25,9 @@ export default function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/recover" element={<RecoverPassword />} />
         <Route path="/feature" element={<Feature />} />
-        <Route path="/cashout/:id" element={<Cashout />} />
         <Route path="/about" element={<About />} />
+        <Route path="/checkout" element={<Cashout />} />
+        <Route path="/terms" element={<TermsAndPolicies />} />
       </Routes>
       <Footer />
     </div>

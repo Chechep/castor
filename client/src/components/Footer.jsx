@@ -4,18 +4,19 @@ export default function Footer() {
   return (
     <footer className="bg-white dark:bg-black text-black dark:text-white py-12 mt-20">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
-        {/* Brand & Eco Message */}
         <div>
-          <h2 className="text-2xl font-semibold mb-4">Essence of Risin</h2>
-          <p className="mb-4">
-            We believe in clean beauty. Our products are created with love,
-            sustainability, and natural ingredients.
+          <h2 className="text-3xl font-serif italic font-extrabold tracking-wide mb-4">
+            Essence of Risin
+          </h2>
+
+          <p className="mb-4 font-light">
+          We believe in clean natural beauty. Every drop of our castor oil is made with care from sustainable harvesting to pure cold-pressed extraction.
           </p>
 
           {/* Eco Friendly Badge */}
           <div className="flex items-center space-x-2 rounded-xl px-4 py-2 w-fit mt-2 border border-green-500">
             <Leaf className="w-5 h-5 text-green-700" />
-            <p className="text-green-700 text-sm">Eco-Friendly</p>
+            <p className="text-green-700 font-serif italic text-sm">Eco-Friendly</p>
           </div>
         </div>
 
@@ -37,12 +38,15 @@ export default function Footer() {
         <div>
           <h3 className="text-xl font-semibold mb-4">Follow Us</h3>
           <div className="flex items-center space-x-4">
+
             <a href="#" className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition">
               <Facebook className="w-5 h-5" />
             </a>
+
             <a href="#" className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition">
               <Instagram className="w-5 h-5" />
             </a>
+
             <a href="#" className="p-3 rounded-full bg-white/10 hover:bg-white/20 transition">
               <Twitter className="w-5 h-5" />
             </a>
