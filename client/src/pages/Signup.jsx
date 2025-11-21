@@ -217,7 +217,7 @@ export default function Signup() {
               to="/login" 
               className="text-black dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 font-medium transition duration-200"
             >
-              Sign In
+              Login
             </Link>
           </p>
 

@@ -15,7 +15,7 @@ export const products = [
     price: 550,
     size: "120ml",
     image: cleanser,
-    description: "Gentle deep-clean with castor extract."
+    description: "Gentle deep-clean from castor extract."
   },
   {
     id: 2,
@@ -23,7 +23,7 @@ export const products = [
     price: 900,
     size: "50ml",
     image: serum,
-    description: "Anti-acne serum with castor oil and vitamin E."
+    description: "Anti-acne serum from castor oil and vitamin E."
   },
   {
     id: 6,
@@ -31,7 +31,7 @@ export const products = [
     price: 1100,
     size: "30ml",
     image: blemish,
-    description: "Fades marks, evens tone with castor oil."
+    description: "Fades marks and evens tone with castor oil."
   },
   {
     id: 7,

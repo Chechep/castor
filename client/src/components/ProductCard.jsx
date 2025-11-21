@@ -1,8 +1,25 @@
-import { ShoppingCart } from "lucide-react";
+import { ShoppingCart, CreditCard } from "lucide-react";
 import { useCart } from "../context/CartContext";
+import { useNavigate } from "react-router-dom";
+import toast from "react-hot-toast";
 
 export default function ProductCard({ product, onOpenDetail }) {
   const { addToCart } = useCart();
+  const navigate = useNavigate();
+
+  const handleQuickBuy = () => {
+    addToCart(product);
+    navigate("/checkout", { state: { quickBuy: true, productId: product.id } });
+  };
+
+  const handleAddToCart = () => {
+    addToCart(product);
+
+    // ⭐ SHOW TOAST
+    toast.success(`${product.name} added to cart`, {
+      duration: 2000,
+    });
+  };
 
   return (
     <div
@@ -35,18 +52,39 @@ export default function ProductCard({ product, onOpenDetail }) {
 
       <p className="text-sm opacity-70">{product.size}</p>
 
-      {/* ALWAYS VISIBLE DESCRIPTION */}
       <p className="text-sm opacity-90 mt-1">{product.description}</p>
 
       <p className="font-bold mt-2">Ksh {product.price}</p>
 
-      <button
-        onClick={() => addToCart(product)}
-        className="flex items-center justify-center gap-2 mt-3 px-4 py-2 w-full bg-gray-300 dark:bg-gray-800 text-black dark:text-white rounded-lg hover:bg-gray-400 dark:hover:bg-gray-700 transition"
-      >
-        <ShoppingCart className="w-5 h-5" />
-        Add to Cart
-      </button>
+      {/* BUTTONS */}
+      <div className="flex gap-2 mt-3">
+        {/* ADD TO CART */}
+        <button
+          onClick={handleAddToCart}
+          className="
+            flex items-center justify-center gap-2 px-4 py-2 flex-1 
+            bg-gray-300 dark:bg-gray-800 text-black dark:text-white 
+            rounded-lg hover:bg-gray-400 dark:hover:bg-gray-700 
+            transition transform hover:scale-[1.02] active:scale-[0.98]
+          "
+        >
+          <ShoppingCart className="w-4 h-4" />
+        </button>
+
+        {/* QUICK BUY */}
+        <button
+          onClick={handleQuickBuy}
+          className="
+            flex items-center justify-center gap-2 px-4 py-2 flex-1 
+            bg-black dark:bg-white text-white dark:text-black 
+            rounded-lg hover:bg-gray-900 dark:hover:bg-gray-200
+            transition transform hover:scale-[1.02] active:scale-[0.98]
+          "
+        >
+          <CreditCard className="w-4 h-4" />
+          Buy
+        </button>
+      </div>
     </div>
   );
 }

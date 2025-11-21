@@ -30,7 +30,7 @@ export default function Cart() {
         className="flex items-center gap-2 text-gray-600 dark:text-gray-400 hover:text-gray-900 dark:hover:text-white mb-6"
       >
         <ArrowLeft className="w-5 h-5" />
-        Back to Shop
+        Back to Products
       </Link>
 
       <h1 className="text-2xl font-bold mb-6">Your Cart</h1>

@@ -11,10 +11,12 @@ import Cashout from "./pages/Checkout";
 import About from "./pages/About";
 import Footer from "./components/Footer";
 import TermsAndPolicies from './pages/TermsAndPolicies';
+import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+      <Toaster position="top-right" />
       <Navbar />
       
       <main className="flex-1">
