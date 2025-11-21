@@ -19,3 +19,12 @@ body {
 img {
   @apply w-full h-auto;
 }
+@keyframes floatRight {
+  0% { transform: translateX(0); }
+  50% { transform: translateX(-50px); }
+  100% { transform: translateX(0); }
+}
+
+.animate-floating-right {
+  animation: floatRight 10s ease-in-out infinite;
+}

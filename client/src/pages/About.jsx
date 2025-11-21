@@ -9,6 +9,13 @@ import bottle from "../assets/images/bottle.png";
 import smile from "../assets/images/smile.png";
 import cas from "../assets/images/cas.png"; // HERO PRODUCT IMAGE
 
+// NEW decorative images
+import skin from "../assets/images/skin.png";
+import onface from "../assets/images/onface.png";
+import eye from "../assets/images/eye.png";
+import seed from "../assets/images/seed.png";
+import leaf from "../assets/images/leaf.png";
+
 export default function About() {
 
   const textVariants = {
@@ -29,7 +36,6 @@ export default function About() {
 
       {/* ------------------ HERO PRODUCT SECTION WITH BACKGROUND IMAGE ------------------ */}
       <div className="relative w-full h-[500px] md:h-[600px] rounded-3xl overflow-hidden mb-16 shadow-2xl">
-        {/* Background image */}
         <motion.img
           src={cas}
           alt="Castor Product"
@@ -39,46 +45,18 @@ export default function About() {
           viewport={{ once: false, amount: 0.3 }}
           transition={{ duration: 1 }}
         />
-
-        {/* Overlay for darkened text */}
         <div className="absolute inset-0 bg-black/40"></div>
-
-        {/* Text overlay */}
         <div className="absolute inset-0 flex flex-col justify-center items-start md:items-start px-6 md:px-16 text-left space-y-4">
-          <motion.h1
-            custom={1}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl md:text-5xl font-serif font-bold text-white"
-          >
+          <motion.h1 custom={1} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-4xl md:text-5xl font-serif font-bold text-white">
             Eco-Friendly,
           </motion.h1>
-
-          <motion.h2
-            custom={2}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-4xl md:text-5xl italic font-light text-gray-300"
-          >
+          <motion.h2 custom={2} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-4xl md:text-5xl italic font-light text-gray-300">
             Skin-Friendly
           </motion.h2>
-
-          <motion.p
-            custom={3}
-            variants={textVariants}
-            initial="hidden"
-            whileInView="visible"
-            viewport={{ once: false, amount: 0.3 }}
-            className="text-gray-300 text-sm md:text-base max-w-md leading-relaxed"
-          >
+          <motion.p custom={3} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-gray-300 text-sm md:text-base max-w-md leading-relaxed">
             100% natural means every ingredient is carefully selected from nature to provide 
             safe, effective, and gentle care for your skin.
           </motion.p>
-
           <div className="space-y-2 mt-4 text-gray-300">
             <motion.p custom={4} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="flex items-center gap-2">
               ✓ No Harsh Chemicals
@@ -96,37 +74,22 @@ export default function About() {
       {/* ------------------ ORIGINAL CONTENT BELOW ------------------ */}
       {/* TOP SECTION */}
       <div className="grid md:grid-cols-2 gap-10 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl overflow-hidden shadow-xl"
-        >
-          <img
-            src={facedrop}
-            alt="Skincare model"
-            className="w-full h-[480px] object-cover"
-          />
+        <motion.div initial={{ opacity: 0, x: -40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="rounded-2xl overflow-hidden shadow-xl">
+          <img src={facedrop} alt="Skincare model" className="w-full h-[480px] object-cover" />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, x: 40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-6"
-        >
+        <motion.div initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.6 }} className="space-y-6">
           <h1 className="text-4xl md:text-5xl font-bold text-gray-800 dark:text-white leading-tight">
             Why Your Skin <br />
             <span className="italic font-light">Deserves the Best</span>
           </h1>
 
           <div className="flex items-center space-x-3">
-            <p className="text-gray-600 dark:text-gray-300 text-sm">
-              473,309 Reviews
-            </p>
+            <p className="text-gray-600 dark:text-gray-300 text-sm">473,309 Reviews</p>
           </div>
 
-          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700">
+          {/* Eco-Friendly card with leaf */}
+          <div className="bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-md border border-gray-200 dark:border-gray-700 relative">
             <h2 className="text-xl font-semibold text-gray-800 dark:text-white mb-2">
               Eco-Friendly <span className="italic font-light">Packaging</span>
             </h2>
@@ -134,8 +97,11 @@ export default function About() {
               Carefully crafted materials to care for the planet as much as your skin.
             </p>
 
-            <div className="flex items-center gap-4 mt-4">
-              <img src={serum} alt="Serum Bottle" className="w-24" />
+            <div className="flex items-center gap-4 mt-4 relative">
+              <div className="relative">
+                <img src={serum} alt="Serum Bottle" className="w-24 relative z-10" />
+                <img src={leaf} alt="Leaf" className="absolute -top-4 -right-4 w-12 animate-bounce-slow z-0" />
+              </div>
               <img src={castor} alt="Castor Oil Bottle" className="w-24" />
               <img src={bottle} alt="Product Bottle" className="w-24" />
               <img src={oil} alt="Oil Bottle" className="w-24" />
@@ -146,32 +112,12 @@ export default function About() {
 
       {/* MIDDLE IMAGES */}
       <div className="mt-20 grid md:grid-cols-2 gap-10 items-center">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6 }}
-          className="rounded-2xl overflow-hidden shadow-lg"
-        >
-          <img
-            src={onface1}
-            alt="Model applying oil"
-            className="w-full h-[420px] object-cover"
-          />
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6 }} className="rounded-2xl overflow-hidden shadow-lg">
+          <img src={onface1} alt="Model applying oil" className="w-full h-[420px] object-cover" />
         </motion.div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: false, amount: 0.3 }}
-          transition={{ duration: 0.6, delay: 0.1 }}
-          className="space-y-4"
-        >
-          <img
-            src={onface2}
-            alt="Skin close-up"
-            className="w-full h-[420px] object-cover rounded-2xl shadow-lg"
-          />
+        <motion.div initial={{ opacity: 0, y: 40 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: false, amount: 0.3 }} transition={{ duration: 0.6, delay: 0.1 }} className="space-y-4">
+          <img src={onface2} alt="Skin close-up" className="w-full h-[420px] object-cover rounded-2xl shadow-lg" />
 
           <h2 className="text-3xl font-semibold text-gray-800 dark:text-white">
             Pure. Gentle. Effective.
@@ -186,23 +132,79 @@ export default function About() {
       </div>
 
       {/* SMILE SECTION */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: false, amount: 0.3 }}
-        transition={{ duration: 0.6 }}
-        className="mt-16 flex flex-col items-center text-center space-y-6"
-      >
-        <img
-          src={smile}
-          alt="Smiling customer"
-          className="w-[280px] md:w-[360px] rounded-2xl shadow-lg object-cover"
-        />
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  whileInView={{ opacity: 1, y: 0 }}
+  viewport={{ once: false, amount: 0.3 }}
+  transition={{ duration: 0.6 }}
+  className="mt-16 flex flex-col items-center text-center space-y-12 relative overflow-hidden"
+>
+  {/* Main smile image */}
+  <img
+    src={smile}
+    alt="Smiling customer"
+    className="w-[320px] md:w-[600px] rounded-2xl shadow-lg object-cover relative z-10"
+  />
 
-        <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg max-w-xl leading-relaxed px-4">
-          It feels healthier, smoother and more than ever knowing that I am using natural products.
-        </p>
-      </motion.div>
+  {/* Main text */}
+  <p className="text-gray-700 dark:text-gray-300 text-base md:text-lg max-w-xl leading-relaxed px-4 relative z-10">
+    Experience smoother, healthier skin and a natural glow with our carefully crafted products.
+  </p>
+
+  {/* Floating decorative images with text */}
+  <div className="relative w-full flex flex-col items-center space-y-8 mt-8">
+    
+    {/* Skin */}
+    <motion.div
+      className="flex items-center space-x-4"
+      animate={{ x: ["100%", "-60%", "100%"] }}
+      transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <img src={skin} className="w-48 md:w-50 rounded-full shadow-lg" />
+      <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base max-w-xs text-left">
+        Perfect for all skin & hair types – nourishes, hydrates and revitalizes naturally.
+      </p>
+    </motion.div>
+
+    {/* OnFace */}
+    <motion.div
+      className="flex items-center space-x-4 md:space-x-6"
+      animate={{ x: ["120%", "-70%", "120%"] }}
+      transition={{ duration: 17, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <img src={onface} className="w-50 md:w-40 rounded-full shadow-lg" />
+      <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base max-w-xs text-left">
+        Smoothens the skin for a soft, radiant, flawless feel.
+      </p>
+    </motion.div>
+
+    {/* Eye */}
+    <motion.div
+      className="flex items-center space-x-4"
+      animate={{ x: ["90%", "-70%", "90%"] }}
+      transition={{ duration: 19, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <img src={eye} className="w-50 md:w-50 rounded-full shadow-lg" />
+      <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base max-w-xs text-left">
+        Softens eyebrows and enhances lashes – can even be applied to mascara!
+      </p>
+    </motion.div>
+
+    {/* Seed */}
+    <motion.div
+      className="flex items-center space-x-4"
+      animate={{ x: ["110%", "-60%", "110%"] }}
+      transition={{ duration: 16, repeat: Infinity, ease: "easeInOut" }}
+    >
+      <img src={seed} className="w-54 md:w-60 rounded-full shadow-lg" />
+      <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base max-w-xs text-left">
+        Sourced from natural plants – pure, gentle, and effective for daily care.
+      </p>
+    </motion.div>
+
+  </div>
+</motion.div>
+
     </div>
   );
 }
