@@ -261,8 +261,8 @@ export default function About() {
             whileHover={{ scale: 0.95 }}
           >
             <motion.div 
-              className="w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
-              whileHover={{ scale: 1.1 }}
+              className="w-28 h-28 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.4 }}
               transition={{ type: "spring", stiffness: 300, damping: 20 }}
             >
               <img 
