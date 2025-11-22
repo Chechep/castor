@@ -128,7 +128,7 @@ export default function About() {
         </motion.div>
       </div>
 
-      {/* SMILE SECTION - UPDATED WITH 5 IMAGES IN ONE LINE */}
+      {/* SMILE SECTION - UPDATED WITH 5 IMAGES IN HORIZONTAL LINE WITH HOVER ZOOM-OUT */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -148,8 +148,8 @@ export default function About() {
           Experience smoother, healthier skin and a natural glow with our carefully crafted products.
         </p>
 
-        {/* 5 Images in one line with descriptions below */}
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 w-full max-w-6xl">
+        {/* 5 Images in horizontal line with descriptions below and hover effects */}
+        <div className="flex flex-wrap justify-center gap-6 md:gap-8 w-full max-w-6xl">
           
           {/* Skin */}
           <motion.div
@@ -157,16 +157,21 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col items-center text-center space-y-3"
+            className="flex flex-col items-center text-center space-y-3 group cursor-pointer"
+            whileHover={{ scale: 0.95 }}
           >
-            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
-            <img 
+            <motion.div 
+              className="w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <img 
                 src={skin} 
                 alt="Skin care" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+            </motion.div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight max-w-[120px] md:max-w-[140px]">
               Perfect for all skin & hair types
             </p>
           </motion.div>
@@ -177,16 +182,21 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col items-center text-center space-y-3"
+            className="flex flex-col items-center text-center space-y-3 group cursor-pointer"
+            whileHover={{ scale: 0.95 }}
           >
-            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
-            <img 
+            <motion.div 
+              className="w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <img 
                 src={onface} 
                 alt="On face application" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+            </motion.div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight max-w-[120px] md:max-w-[140px]">
               Smoothens for soft, radiant skin
             </p>
           </motion.div>
@@ -197,16 +207,21 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col items-center text-center space-y-3"
+            className="flex flex-col items-center text-center space-y-3 group cursor-pointer"
+            whileHover={{ scale: 0.95 }}
           >
-            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
-            <img 
+            <motion.div 
+              className="w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <img 
                 src={eye} 
                 alt="Eye area care" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+            </motion.div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight max-w-[120px] md:max-w-[140px]">
               Softens eyebrows & enhances lashes
             </p>
           </motion.div>
@@ -217,16 +232,21 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col items-center text-center space-y-3"
+            className="flex flex-col items-center text-center space-y-3 group cursor-pointer"
+            whileHover={{ scale: 0.95 }}
           >
-            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
-            <img 
+            <motion.div 
+              className="w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <img 
                 src={seed}
                 alt="Natural seeds"
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+            </motion.div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight max-w-[120px] md:max-w-[140px]">
               Sourced from natural plants
             </p>
           </motion.div>
@@ -237,16 +257,21 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.5 }}
-            className="flex flex-col items-center text-center space-y-3"
+            className="flex flex-col items-center text-center space-y-3 group cursor-pointer"
+            whileHover={{ scale: 0.95 }}
           >
-            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
+            <motion.div 
+              className="w-20 h-20 md:w-28 md:h-28 rounded-2xl shadow-lg overflow-hidden"
+              whileHover={{ scale: 1.1 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
               <img 
                 src={bottle} 
                 alt="Product bottle" 
-                className="w-full h-full object-cover"
+                className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
               />
-            </div>
-            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+            </motion.div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight max-w-[120px] md:max-w-[140px]">
               Eco-friendly packaging
             </p>
           </motion.div>
