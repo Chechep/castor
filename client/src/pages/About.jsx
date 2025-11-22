@@ -98,13 +98,10 @@ export default function About() {
             </p>
 
             <div className="flex items-center gap-4 mt-4 relative">
-              <div className="relative">
-                <img src={serum} alt="Serum Bottle" className="w-24 relative z-10" />
-                <img src={leaf} alt="Leaf" className="absolute -top-4 -right-4 w-12 animate-bounce-slow z-0" />
-              </div>
               <img src={castor} alt="Castor Oil Bottle" className="w-24" />
-              <img src={bottle} alt="Product Bottle" className="w-24" />
+              <img src={leaf} alt="Leaf" className="w-24" />
               <img src={oil} alt="Oil Bottle" className="w-24" />
+              <img src={serum} alt="Serum Bottle" className="w-24" />
             </div>
           </div>
         </motion.div>
@@ -131,7 +128,7 @@ export default function About() {
         </motion.div>
       </div>
 
-      {/* SMILE SECTION - UPDATED TO MATCH MIDDLE SECTION STYLE */}
+      {/* SMILE SECTION - UPDATED WITH 5 IMAGES IN ONE LINE */}
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
@@ -151,8 +148,8 @@ export default function About() {
           Experience smoother, healthier skin and a natural glow with our carefully crafted products.
         </p>
 
-        {/* Grid of decorative images with text - matching the middle section style */}
-        <div className="grid md:grid-cols-2 gap-8 w-full max-w-6xl">
+        {/* 5 Images in one line with descriptions below */}
+        <div className="grid grid-cols-2 md:grid-cols-5 gap-4 md:gap-6 w-full max-w-6xl">
           
           {/* Skin */}
           <motion.div
@@ -160,14 +157,18 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="flex flex-col md:flex-row items-center gap-6 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg"
+            className="flex flex-col items-center text-center space-y-3"
           >
-            <img src={skin} className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md" />
-            <div className="flex-1 text-left">
-              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
-                Perfect for all skin & hair types – nourishes, hydrates and revitalizes naturally.
-              </p>
+            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
+            <img 
+                src={skin} 
+                alt="Skin care" 
+                className="w-full h-full object-cover"
+              />
             </div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+              Perfect for all skin & hair types
+            </p>
           </motion.div>
 
           {/* OnFace */}
@@ -176,14 +177,18 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="flex flex-col md:flex-row items-center gap-6 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg"
+            className="flex flex-col items-center text-center space-y-3"
           >
-            <img src={onface} className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md" />
-            <div className="flex-1 text-left">
-              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
-                Smoothens the skin for a soft, radiant, flawless feel.
-              </p>
+            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
+            <img 
+                src={onface} 
+                alt="On face application" 
+                className="w-full h-full object-cover"
+              />
             </div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+              Smoothens for soft, radiant skin
+            </p>
           </motion.div>
 
           {/* Eye */}
@@ -192,14 +197,18 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="flex flex-col md:flex-row items-center gap-6 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg"
+            className="flex flex-col items-center text-center space-y-3"
           >
-            <img src={eye} className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md" />
-            <div className="flex-1 text-left">
-              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
-                Softens eyebrows and enhances lashes – can even be applied to mascara!
-              </p>
+            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
+            <img 
+                src={eye} 
+                alt="Eye area care" 
+                className="w-full h-full object-cover"
+              />
             </div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+              Softens eyebrows & enhances lashes
+            </p>
           </motion.div>
 
           {/* Seed */}
@@ -208,14 +217,38 @@ export default function About() {
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: false, amount: 0.3 }}
             transition={{ duration: 0.6, delay: 0.4 }}
-            className="flex flex-col md:flex-row items-center gap-6 bg-white dark:bg-gray-800 p-6 rounded-2xl shadow-lg"
+            className="flex flex-col items-center text-center space-y-3"
           >
-            <img src={seed} className="w-32 h-32 md:w-40 md:h-40 rounded-full object-cover shadow-md" />
-            <div className="flex-1 text-left">
-              <p className="text-gray-700 dark:text-gray-300 text-sm md:text-base">
-                Sourced from natural plants – pure, gentle, and effective for daily care.
-              </p>
+            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
+            <img 
+                src={seed}
+                alt="Natural seeds"
+                className="w-full h-full object-cover"
+              />
             </div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+              Sourced from natural plants
+            </p>
+          </motion.div>
+
+          {/* Bottle */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: false, amount: 0.3 }}
+            transition={{ duration: 0.6, delay: 0.5 }}
+            className="flex flex-col items-center text-center space-y-3"
+          >
+            <div className="w-26 h-26 md:w-34 md:h-34 rounded-2xl shadow-lg overflow-hidden">
+              <img 
+                src={bottle} 
+                alt="Product bottle" 
+                className="w-full h-full object-cover"
+              />
+            </div>
+            <p className="text-gray-700 dark:text-gray-300 text-xs md:text-sm leading-tight">
+              Eco-friendly packaging
+            </p>
           </motion.div>
 
         </div>
