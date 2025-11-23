@@ -7,9 +7,8 @@ import oil from "../assets/images/oil.png";
 import castor from "../assets/images/castor.png";
 import bottle from "../assets/images/bottle.png";
 import smile from "../assets/images/smile.png";
-import cas from "../assets/images/cas.png"; // HERO PRODUCT IMAGE
+import cas from "../assets/images/cas.png";
 
-// NEW decorative images
 import skin from "../assets/images/skin.png";
 import onface from "../assets/images/onface.png";
 import eye from "../assets/images/eye.png";

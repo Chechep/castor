@@ -79,7 +79,7 @@ export const products = [
     price: 780,
     size: "100g",
     image: cream,
-    description: "Full-body moisture with castor + shea."
+    description: "Full body and hair moisturizer from castor oil."
   },
 
 ];
