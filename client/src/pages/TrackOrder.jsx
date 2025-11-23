@@ -35,7 +35,7 @@ export default function TrackOrder() {
     : 0;
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-6 max-w-4xl mx-auto bg-gray-50 dark:bg-black min-h-screen">
       <h1 className="text-2xl font-bold mb-6">Track Your Order</h1>
 
       {/* Tracking input */}
@@ -45,11 +45,11 @@ export default function TrackOrder() {
           placeholder="Enter Order ID"
           value={trackingNumber}
           onChange={(e) => setTrackingNumber(e.target.value)}
-          className="flex-1 p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
+          className="flex-1 p-3 border rounded-lg dark:bg-gray-900 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500"
         />
         <button
           onClick={handleTrackOrder}
-          className="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition"
+          className="bg-sky-600 text-white px-6 py-3 rounded-lg hover:bg-sky-700 transition"
         >
           Track
         </button>
@@ -69,7 +69,7 @@ export default function TrackOrder() {
           </p>
         </div>
       ) : (
-        <div className="mb-8 p-6 border rounded-lg bg-white dark:bg-gray-800 shadow-md">
+        <div className="mb-8 p-6 rounded-lg bg-white dark:bg-black shadow-md">
           {/* Order Info & Progress */}
           <div className="flex items-center gap-3 mb-4">
             <CheckCircle className="w-8 h-8 text-green-600 dark:text-green-300" />

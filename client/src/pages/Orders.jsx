@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useCart } from "../context/CartContext";
 import { Truck, CreditCard, CheckCircle } from "lucide-react";
+import mpesaLogo from "../assets/images/mpesa.png";
 
 export default function Orders() {
   const navigate = useNavigate();
@@ -49,7 +50,7 @@ export default function Orders() {
         orders.map((order, idx) => (
           <div
             key={idx}
-            className="mb-8 p-6 border rounded-lg bg-white dark:bg-gray-800 shadow-lg"
+            className="mb-8 p-6 rounded-lg bg-white dark:bg-black shadow-lg"
           >
             <div className="flex items-center justify-between mb-4">
               <h2 className="text-xl font-semibold">Order #{order.id}</h2>
@@ -92,7 +93,7 @@ export default function Orders() {
                   <span className="font-semibold">Ksh. {item.price * item.quantity}</span>
                 </div>
               ))}
-              <div className="flex justify-between items-center pt-4 mt-2 border-t">
+              <div className="flex justify-between items-center pt-4 mt-2">
                 <span className="text-lg font-bold">Total:</span>
                 <span className="text-lg font-bold">Ksh. {order.total}</span>
               </div>
@@ -102,7 +103,7 @@ export default function Orders() {
             <div className="flex justify-between items-center mt-4">
               <div className="flex items-center gap-4">
                 {order.paymentMethod === "mpesa" && (
-                  <img src="/assets/images/mpesa.png" alt="M-Pesa" className="h-6" />
+                <img src={mpesaLogo} alt="M-Pesa" className="h-20" />
                 )}
                 {order.paymentMethod === "card" && order.cardType === "visa" && (
                   <img

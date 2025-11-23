@@ -3,9 +3,9 @@ import { Link } from "react-router-dom";
 
 export default function TermsAndPolicies() {
   return (
-    <div className="min-h-screen bg-gray-50 dark:bg-gray-900 py-8">
+    <div className="min-h-screen bg-gray-50 dark:bg-black py-8">
       <div className="max-w-4xl mx-auto px-6">
-        <div className="bg-white dark:bg-gray-800 rounded-lg shadow-lg p-8">
+        <div className="bg-gray-200 dark:bg-gray-900 rounded-lg shadow-lg p-8">
           <h1 className="text-3xl font-bold text-center mb-8">Terms and Conditions</h1>
           
           <div className="prose dark:prose-invert max-w-none">

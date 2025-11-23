@@ -17,7 +17,7 @@ import TrackOrder from "./pages/TrackOrder";
 
 export default function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+    <div className="min-h-screen flex flex-col bg-white dark:bg-black text-black dark:text-white">
 
       <Toaster position="top-right" />
 
