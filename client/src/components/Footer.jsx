@@ -2,7 +2,7 @@ import { Facebook, Instagram, Twitter, Mail, Phone, MapPin, Leaf } from "lucide-
 
 export default function Footer() {
   return (
-    <footer className="bg-white dark:bg-black text-black dark:text-white py-12 mt-auto">
+    <footer className="bg-gray-50 dark:bg-black text-black dark:text-white py-12 mt-auto">
       <div className="max-w-6xl mx-auto px-6 grid md:grid-cols-3 gap-12">
         <div>
           <h2 className="text-3xl font-serif italic font-extrabold tracking-wide mb-4">

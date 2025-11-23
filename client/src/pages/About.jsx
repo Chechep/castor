@@ -46,17 +46,13 @@ export default function About() {
         />
         <div className="absolute inset-0 bg-black/40"></div>
         <div className="absolute inset-0 flex flex-col justify-center items-start md:items-start px-6 md:px-16 text-left space-y-4">
-          <motion.h1 custom={1} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-4xl md:text-5xl font-serif font-bold text-white">
+          <motion.h1 custom={1} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-4xl md:text-7xl font-serif font-bold text-white">
             Eco-Friendly,
           </motion.h1>
-          <motion.h2 custom={2} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-4xl md:text-5xl italic font-light text-gray-300">
+          <motion.h2 custom={2} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-4xl md:text-6xl italic font-light text-gray-300">
             Skin-Friendly
           </motion.h2>
-          <motion.p custom={3} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="text-gray-300 text-sm md:text-base max-w-md leading-relaxed">
-            100% natural means every ingredient is carefully selected from nature to provide 
-            safe, effective, and gentle care for your skin.
-          </motion.p>
-          <div className="space-y-2 mt-4 text-gray-300">
+          <div className="space-y-2 mt-4 md:text-2xl text-gray-200">
             <motion.p custom={4} variants={textVariants} initial="hidden" whileInView="visible" viewport={{ once: false, amount: 0.3 }} className="flex items-center gap-2">
               ✓ No Harsh Chemicals
             </motion.p>
