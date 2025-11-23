@@ -1,5 +1,6 @@
 import { Routes, Route } from "react-router-dom";
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Login from "./pages/Login";
@@ -7,19 +8,20 @@ import Signup from "./pages/Signup";
 import RecoverPassword from "./pages/RecoverPassword";
 import Cart from "./pages/Cart";
 import Feature from "./pages/Feature";
-import Cashout from "./pages/Checkout";
 import About from "./pages/About";
-import Footer from "./components/Footer";
-import TermsAndPolicies from './pages/TermsAndPolicies';
+import Cashout from "./pages/Checkout";
+import TermsAndPolicies from "./pages/TermsAndPolicies";
 import { Toaster } from "react-hot-toast";
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-gray-900 text-gray-900 dark:text-gray-100">
+
       <Toaster position="top-right" />
+
       <Navbar />
-      
-      <main className="flex-1">
+
+      <main className="flex-1 w-full">
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
@@ -33,7 +35,7 @@ export default function App() {
           <Route path="/terms" element={<TermsAndPolicies />} />
         </Routes>
       </main>
-      
+
       <Footer />
     </div>
   );

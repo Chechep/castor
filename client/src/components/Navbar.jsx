@@ -28,7 +28,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="sticky top-4 z-50 mx-auto w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl shadow-lg backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 border border-white/10">
+      <header className="sticky top-0 z-50 mx-auto w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl shadow-lg backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 border border-white/10">
         <Link to="/">
           <Home className="w-7 h-7 text-black dark:text-white" />
         </Link>
