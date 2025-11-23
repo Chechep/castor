@@ -10,10 +10,13 @@ import {
 } from "firebase/auth";
 
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_PROJECT.firebaseapp.com",
-  projectId: "YOUR_PROJECT_ID",
-  appId: "APP_ID"
+  apiKey: "AIzaSyCenEUCyTGFGT-ztDIs26Xb5lgfvFQG4Vg",
+  authDomain: "castor-bc6d8.firebaseapp.com",
+  projectId: "castor-bc6d8",
+  storageBucket: "castor-bc6d8.firebasestorage.app",
+  messagingSenderId: "521672647670",
+  appId: "1:521672647670:web:2868c998793f821bccddd7",
+  measurementId: "G-0VZQJM49Z0"
 };
 
 const app = initializeApp(firebaseConfig);
