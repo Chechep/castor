@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
-import { ShoppingCart, User, Sun, Moon, Home, Menu, X } from "lucide-react";
+import { ShoppingCart, User, Sun, Moon, Home, Menu, X, Truck } from "lucide-react";
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
@@ -57,6 +57,10 @@ export default function Navbar() {
             )}
           </Link>
 
+          <Link to="/orders" className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+            <Truck className="w-6 h-6" />
+          </Link>
+
           <button onClick={toggleTheme} className="text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400">
             {dark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
@@ -77,6 +81,10 @@ export default function Navbar() {
             className="md:hidden fixed top-20 right-4 z-50 w-56 p-5 rounded-xl shadow-xl border border-white/20 backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 flex flex-col gap-4 text-gray-900 dark:text-white"
           >
             <Link to="/" onClick={toggleMenu}>Home</Link>
+            <Link to="/orders" onClick={toggleMenu} className="flex items-center gap-2">
+              Orders
+              <Truck className="w-5 h-5" />
+            </Link>
             {currentUser ? (
               <button onClick={() => { logout(); toggleMenu(); }}>Logout</button>
             ) : (

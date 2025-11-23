@@ -12,6 +12,8 @@ import About from "./pages/About";
 import Cashout from "./pages/Checkout";
 import TermsAndPolicies from "./pages/TermsAndPolicies";
 import { Toaster } from "react-hot-toast";
+import Orders from "./pages/Orders";
+import TrackOrder from "./pages/TrackOrder";
 
 export default function App() {
   return (
@@ -33,6 +35,8 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<Cashout />} />
           <Route path="/terms" element={<TermsAndPolicies />} />
+          <Route path="/orders" element={<Orders />} />
+          <Route path="/track" element={<TrackOrder />} />
         </Routes>
       </main>
 

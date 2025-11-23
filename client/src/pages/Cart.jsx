@@ -82,7 +82,7 @@ export default function Cart() {
               </div>
 
               <div className="text-right min-w-20">
-                <p className="font-bold">Ksh {item.price * item.quantity}</p>
+                <p className="font-bold">Ksh. {item.price * item.quantity}</p>
               </div>
 
               <button
@@ -96,7 +96,7 @@ export default function Cart() {
 
           <div className="border-t pt-4 mt-6">
             <div className="flex justify-between items-center mb-6">
-              <span className="text-xl font-bold">Total: Ksh {totalAmount}</span>
+              <span className="text-xl font-bold">Total: Ksh. {totalAmount}</span>
             </div>
             
             <Link
