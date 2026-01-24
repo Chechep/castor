@@ -78,29 +78,27 @@ export default function Navbar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 150, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden fixed top-20 right-4 z-50 w-56 p-5 rounded-xl shadow-xl border border-white/20 backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 flex flex-col gap-4 text-gray-900 dark:text-white"
+            className="md:hidden fixed top-20 right-5 z-50 w-20 p-5 rounded-xl shadow-xl border border-white/20 backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 flex flex-col gap-4 text-gray-900 dark:text-white"
           >
-            <Link to="/" onClick={toggleMenu}>Home</Link>
-            <Link to="/orders" onClick={toggleMenu} className="flex items-center gap-2">
-              Orders
-              <Truck className="w-5 h-5" />
-            </Link>
             {currentUser ? (
               <button onClick={() => { logout(); toggleMenu(); }}>Logout</button>
             ) : (
-              <Link to="/login" onClick={toggleMenu}>Login</Link>
+              <Link to="/login" onClick={toggleMenu}>
+               <User className="w-5 h-5" /></Link>
             )}
             <Link to="/cart" onClick={toggleMenu} className="flex items-center gap-2">
-              Cart
+            <ShoppingCart className="w-5 h-5" />
               {cartItemCount > 0 && (
                 <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   {cartItemCount}
                 </span>
               )}
             </Link>
+            <Link to="/orders" onClick={toggleMenu} className="flex items-center gap-2">
+            <Truck className="w-5 h-5" />
+            </Link>
             <button onClick={toggleTheme} className="flex items-center gap-2">
               {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}
-              {dark ? "Light Mode" : "Dark Mode"}
             </button>
           </motion.div>
         )}
