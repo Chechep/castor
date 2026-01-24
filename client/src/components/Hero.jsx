@@ -1,61 +1,136 @@
 import React from "react";
-import heroImg from "../assets/images/hero.png";
+import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
+
+import heroDesktop from "../assets/images/hero.png";
+import heroMobile from "../assets/images/hero2.png";
 
 export default function Hero() {
   const handleScrollDown = () => {
     window.scrollBy({
       top: window.innerHeight,
-      left: 0,
       behavior: "smooth",
     });
   };
 
   return (
-    <section className="relative w-full min-h-screen flex items-center justify-center overflow-hidden">
+    <section className="relative w-full min-h-screen overflow-hidden flex items-center justify-center">
 
-      {/* Background Image */}
-      <img
-        src={heroImg}
-        alt="Hero"
+      {/* Desktop Background */}
+      <motion.img
+        src={heroDesktop}
+        alt="Hero desktop background"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
         className="
-          absolute inset-0 
-          w-full h-full 
-          object-cover 
-          object-center 
+          hidden md:block
+          absolute inset-0 w-full h-full
+          object-cover object-center
           z-0
         "
+        initial={{ scale: 1.1 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 2.2, ease: "easeOut" }}
+      />
+
+      {/* Mobile Background */}
+      <motion.img
+        src={heroMobile}
+        alt="Hero mobile background"
+        loading="eager"
+        decoding="async"
+        fetchpriority="high"
+        className="
+          block md:hidden
+          absolute inset-0 w-full h-full
+          object-cover object-top
+          z-0
+        "
+        initial={{ scale: 1.15 }}
+        animate={{ scale: 1 }}
+        transition={{ duration: 2.4, ease: "easeOut" }}
       />
 
       {/* Overlay */}
-      <div className="absolute inset-0 bg-black/30 dark:bg-black/60 z-0"></div>
+      <div className="absolute inset-0 bg-black/40 dark:bg-black/60 z-10" />
 
-      {/* Text */}
-      <div className="relative z-20 flex flex-col items-center justify-center px-4 max-w-3xl text-center">
-        <h1 className="italic font-serif text-4xl md:text-6xl font-bold text-white drop-shadow-lg mb-6">
+      {/* Content */}
+      <div className="relative z-20 max-w-3xl px-4 text-center">
+
+        {/* Heading */}
+        <motion.h1
+          className="italic font-serif text-4xl md:text-6xl font-bold text-white drop-shadow-xl mb-6"
+          initial={{
+            opacity: 0,
+            y: 40,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.9,
+            ease: "easeOut",
+          }}
+        >
           Natural Castor Oil for Glowing Skin
-        </h1>
+        </motion.h1>
 
-        <p className="text-lg md:text-xl text-white/80 mb-8">
-          Explore our premium cold-pressed castor oil products for hydration, repair, and natural beauty.
-        </p>
+        {/* Subtext */}
+        <motion.p
+          className="text-lg md:text-xl text-white/80 mb-8"
+          initial={{
+            opacity: 0,
+            y: 20,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            delay: 0.25,
+            duration: 0.8,
+            ease: "easeOut",
+          }}
+        >
+          Explore our premium cold-pressed castor oil products for hydration,
+          repair, and natural beauty.
+        </motion.p>
 
-        <a
+        {/* CTA */}
+        <motion.a
           href="/products"
-          className="px-8 py-3 text-white rounded-full font-semibold text-lg shadow-xl backdrop-blur-xl 
-          bg-white/10 dark:bg-gray-900/20 border border-white/20">
+          className="
+            inline-block px-8 py-3
+            text-white font-semibold text-lg
+            rounded-full shadow-xl
+            backdrop-blur-xl
+            bg-white/10 dark:bg-gray-900/20
+            border border-white/20
+          "
+          initial={{ opacity: 0, scale: 0.95 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ delay: 0.45, duration: 0.6 }}
+          whileHover={{ scale: 1.05 }}
+          whileTap={{ scale: 0.97 }}
+        >
           Explore
-        </a>
+        </motion.a>
       </div>
 
-      {/* Scroll Arrow */}
-      <button
+      {/* Scroll Indicator */}
+      <motion.button
         onClick={handleScrollDown}
-        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 animate-bounce text-white"
-        aria-label="Scroll Down"
+        aria-label="Scroll down"
+        className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 text-white"
+        initial={{ opacity: 0 }}
+        animate={{ opacity: 1 }}
+        transition={{ delay: 1 }}
+        whileHover={{ y: 4 }}
       >
-        <ChevronDown className="w-8 h-8" />
-      </button>
+        <ChevronDown className="w-8 h-8 animate-bounce" />
+      </motion.button>
 
     </section>
   );
