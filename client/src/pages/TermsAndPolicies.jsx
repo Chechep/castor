@@ -117,7 +117,7 @@ export default function TermsAndPolicies() {
             <section>
               <h2 className="text-2xl font-semibold mb-4">9. Contact Information</h2>
               <p className="mb-2"><strong>Email:</strong> support@essenceofrisin.com</p>
-              <p className="mb-2"><strong>Phone:</strong> +254 700 000 000</p>
+              <p className="mb-2"><strong>Phone:</strong> +254 790 086 093</p>
               <p><strong>Address:</strong> Nairobi, Kenya</p>
             </section>
 

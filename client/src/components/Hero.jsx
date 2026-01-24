@@ -3,7 +3,7 @@ import { motion } from "framer-motion";
 import { ChevronDown } from "lucide-react";
 
 import heroDesktop from "../assets/images/hero.png";
-import heroMobile from "../assets/images/hero2.png";
+import heroMobile from "../assets/images/Hero2.png";
 
 export default function Hero() {
   const handleScrollDown = () => {

@@ -27,7 +27,7 @@ export default function Footer() {
             <Mail className="w-5 h-5" /> support@essenceofrisin.com
           </p>
           <p className="flex items-center gap-2 mb-2">
-            <Phone className="w-5 h-5" /> +254 712 345 678
+            <Phone className="w-5 h-5" /> +254 790 086 093
           </p>
           <p className="flex items-center gap-2">
             <MapPin className="w-5 h-5" /> Nairobi, Kenya
