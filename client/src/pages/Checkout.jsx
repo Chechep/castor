@@ -44,10 +44,10 @@ export default function Checkout() {
   const handlePayment = () => {
     setLoading(true);
 
-    // Simulate payment processing
+    // payment processing
     setTimeout(() => {
       const orderId = Date.now();
-      const cardNumber = ""; // replace with actual input if needed
+      const cardNumber = "";
       let cardType = "";
       if (paymentMethod === "card" && cardNumber.startsWith("4")) cardType = "visa";
       if (paymentMethod === "card" && cardNumber.startsWith("5")) cardType = "mastercard";
