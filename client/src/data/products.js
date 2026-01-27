@@ -13,23 +13,23 @@ export const products = [
     id: 2,
     name: "Skin Serum",
     price: 900,
-    size: "50ml",
+    size: "100ml",
     image: serum,
-    description: "Anti-acne serum from castor oil and vitamin E."
+    description: "Anti-acne serum from castor with vitamin E."
   },
   {
     id: 6,
     name: "Anti-Blemish Oil",
     price: 1100,
-    size: "30ml",
+    size: "200ml",
     image: blemish,
-    description: "Fades marks and evens tone with castor oil."
+    description: "Fades marks and evens tone with castor."
   },
   {
     id: 7,
     name: "Body Butter",
     price: 1050,
-    size: "200g",
+    size: "170g",
     image: butter,
     description: "Ultra hydration blend with castor."
   },
@@ -37,23 +37,23 @@ export const products = [
     id: 8,
     name: "Foot Repair Balm",
     price: 450,
-    size: "80g",
+    size: "100g",
     image: foot,
     description: "Repairs cracked heels quickly."
   },
   {
     id: 5,
-    name: "Facial Cleanser",
+    name: "Hair Mosturizer",
     price: 550,
-    size: "120ml",
+    size: "150ml",
     image: cleanser,
-    description: "Gentle deep-clean from castor extract."
+    description: "For hair relaxation and moisturization."
   },
   {
     id: 9,
     name: "Acne Control Soap",
     price: 250,
-    size: "90g",
+    size: "80g",
     image: soap,
     description: "Cleans acne-prone skin gently."
   },
@@ -69,7 +69,7 @@ export const products = [
     id: 3,
     name: "Lip Balm",
     price: 300,
-    size: "15g",
+    size: "20g",
     image: balm,
     description: "Softens and rejuvenates dry lips."
   },

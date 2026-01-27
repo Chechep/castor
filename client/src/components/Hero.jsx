@@ -94,29 +94,9 @@ export default function Hero() {
             ease: "easeOut",
           }}
         >
-          Explore our premium cold-pressed castor oil products for hydration,
-          repair, and natural beauty.
+          Explore premium cold-pressed castor oil products for hydration,
+          repair and natural beauty.
         </motion.p>
-
-        {/* CTA */}
-        <motion.a
-          href="/products"
-          className="
-            inline-block px-8 py-3
-            text-white font-semibold text-lg
-            rounded-full shadow-xl
-            backdrop-blur-xl
-            bg-white/10 dark:bg-gray-900/20
-            border border-white/20
-          "
-          initial={{ opacity: 0, scale: 0.95 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ delay: 0.45, duration: 0.6 }}
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.97 }}
-        >
-          Explore
-        </motion.a>
       </div>
 
       {/* Scroll Indicator */}
