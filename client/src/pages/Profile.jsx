@@ -70,7 +70,7 @@ export default function Profile() {
 
   return (
     <div className="min-h-screen flex items-center justify-center bg-gray-50 dark:bg-black px-4">
-      <div className="max-w-md w-full bg-white dark:bg-gray-900 p-8 rounded-2xl shadow-lg border">
+      <div className="max-w-md w-full bg-white dark:bg-black p-8 rounded-2xl shadow-lg border border-gray-200 dark:border-gray-800">
         <h2 className="text-2xl font-bold text-center mb-6 dark:text-white">
           Edit Profile
         </h2>
@@ -110,7 +110,7 @@ export default function Profile() {
             onChange={(e) => setName(e.target.value)}
             placeholder="Full Name"
             required
-            className="w-full p-4 rounded-lg border bg-white dark:bg-gray-700 dark:text-white"
+            className="w-full p-4 rounded-lg bg-white dark:bg-gray-800 dark:text-white"
           />
 
           <input
@@ -119,7 +119,7 @@ export default function Profile() {
             onChange={(e) => setEmail(e.target.value)}
             placeholder="Email"
             required
-            className="w-full p-4 rounded-lg border bg-white dark:bg-gray-700 dark:text-white"
+            className="w-full p-4 rounded-lg bg-white dark:bg-gray-800 dark:text-white"
           />
 
           {/* Password */}
@@ -129,7 +129,7 @@ export default function Profile() {
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               placeholder="New Password (optional)"
-              className="w-full p-4 pr-12 rounded-lg border bg-white dark:bg-gray-700 dark:text-white"
+              className="w-full p-4 pr-12 rounded-lg bg-white dark:bg-gray-800 dark:text-white"
             />
             <button
               type="button"
@@ -147,7 +147,7 @@ export default function Profile() {
               value={confirmPassword}
               onChange={(e) => setConfirmPassword(e.target.value)}
               placeholder="Confirm New Password"
-              className="w-full p-4 pr-12 rounded-lg border bg-white dark:bg-gray-700 dark:text-white"
+              className="w-full p-4 pr-12 rounded-lg bg-white dark:bg-gray-800 dark:text-white"
             />
             <button
               type="button"
