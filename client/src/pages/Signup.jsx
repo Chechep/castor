@@ -1,10 +1,12 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useAuth } from "../context/AuthContext";
 import { Link, useNavigate } from "react-router-dom";
 import { Eye, EyeOff, Mail, Lock, User } from "lucide-react";
 
 export default function Signup() {
-  const { signupUser, googleLogin } = useAuth();
+  const { signupUser, googleLogin, currentUser } = useAuth();
+  const navigate = useNavigate();
+
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
@@ -12,25 +14,20 @@ export default function Signup() {
   const [loading, setLoading] = useState(false);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
-  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (currentUser) navigate("/");
+  }, [currentUser, navigate]);
 
   const handleSignup = async () => {
-    if (password !== confirmPassword) {
-      alert("Passwords don't match!");
-      return;
-    }
-
-    if (password.length < 6) {
-      alert("Password must be at least 6 characters long!");
-      return;
-    }
+    if (password !== confirmPassword) return alert("Passwords don't match");
+    if (password.length < 6) return alert("Password too short");
 
     setLoading(true);
     try {
       await signupUser(email, password, fullName);
-      navigate("/");
-    } catch (error) {
-      console.error("Signup error:", error);
+    } catch (err) {
+      console.error(err);
     } finally {
       setLoading(false);
     }
@@ -40,20 +37,11 @@ export default function Signup() {
     setLoading(true);
     try {
       await googleLogin();
-      navigate("/");
-    } catch (error) {
-      console.error("Google signup error:", error);
+    } catch (err) {
+      console.error(err);
     } finally {
       setLoading(false);
     }
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
-  };
-
-  const toggleConfirmPasswordVisibility = () => {
-    setShowConfirmPassword(!showConfirmPassword);
   };
 
   return (

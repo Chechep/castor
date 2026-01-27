@@ -1,4 +1,4 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
 import {
@@ -18,6 +18,7 @@ import { motion, AnimatePresence } from "framer-motion";
 export default function Navbar() {
   const { currentUser, logout } = useAuth();
   const { cartItems } = useCart();
+  const navigate = useNavigate();
 
   const [dark, setDark] = useState(localStorage.getItem("theme") === "dark");
   const [open, setOpen] = useState(false);
@@ -33,9 +34,19 @@ export default function Navbar() {
     localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
+  const handleLogout = async () => {
+    try {
+      await logout();
+      setConfirmLogout(false);
+      navigate("/login");
+    } catch (err) {
+      console.error("Logout error:", err);
+    }
+  };
+
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl backdrop-blur-xl bg-white/10 dark:bg-gray-900/10  shadow-lg">
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 shadow-lg">
         <Link to="/">
           <Home className="w-7 h-7" />
         </Link>
@@ -45,17 +56,23 @@ export default function Navbar() {
         </div>
 
         <div className="hidden md:flex gap-5 items-center">
-          <Link to="/profile">
-            {currentUser?.photoURL ? (
-              <img
-                src={currentUser.photoURL}
-                alt="profile"
-                className="w-8 h-8 rounded-full border"
-              />
-            ) : (
+          {currentUser ? (
+            <Link to="/profile">
+              {currentUser.photoURL ? (
+                <img
+                  src={currentUser.photoURL}
+                  alt="profile"
+                  className="w-8 h-8 rounded-full border"
+                />
+              ) : (
+                <User />
+              )}
+            </Link>
+          ) : (
+            <Link to="/login">
               <User />
-            )}
-          </Link>
+            </Link>
+          )}
 
           <Link to="/cart" className="relative">
             <ShoppingCart />
@@ -145,7 +162,7 @@ export default function Navbar() {
                   Cancel
                 </button>
                 <button
-                  onClick={logout}
+                  onClick={handleLogout}
                   className="px-4 py-2 rounded-lg bg-red-500 text-white"
                 >
                   Logout
