@@ -1,12 +1,9 @@
 import { initializeApp } from "firebase/app";
 import {
   getAuth,
-  signInWithEmailAndPassword,
-  createUserWithEmailAndPassword,
-  sendPasswordResetEmail,
-  signOut,
-  GoogleAuthProvider,
-  signInWithPopup
+  updateProfile,
+  updateEmail,
+  updatePassword,
 } from "firebase/auth";
 
 const firebaseConfig = {
@@ -16,23 +13,15 @@ const firebaseConfig = {
   storageBucket: "castor-bc6d8.firebasestorage.app",
   messagingSenderId: "521672647670",
   appId: "1:521672647670:web:2868c998793f821bccddd7",
-  measurementId: "G-0VZQJM49Z0"
 };
 
 const app = initializeApp(firebaseConfig);
 export const auth = getAuth(app);
-export const googleProvider = new GoogleAuthProvider();
 
-export const loginUser = (email, pass) =>
-  signInWithEmailAndPassword(auth, email, pass);
+// ✅ Profile helpers
+export const updateUserProfile = (name, photoURL) =>
+  updateProfile(auth.currentUser, { displayName: name, photoURL });
 
-export const signupUser = (email, pass) =>
-  createUserWithEmailAndPassword(auth, email, pass);
-
-export const googleLogin = () =>
-  signInWithPopup(auth, googleProvider);
-
-export const resetPassword = (email) =>
-  sendPasswordResetEmail(auth, email);
-
-export const logoutUser = () => signOut(auth);
+export const updateUserEmail = (email) => updateEmail(auth.currentUser, email);
+export const updateUserPassword = (password) =>
+  updatePassword(auth.currentUser, password);

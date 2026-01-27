@@ -28,8 +28,7 @@ export default function Navbar() {
 
   return (
     <>
-      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl shadow-lg backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 border border-white/10"
-      >
+      <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl shadow-lg backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 border border-white/10">
         <Link to="/">
           <Home className="w-7 h-7 text-black dark:text-white" />
         </Link>
@@ -40,16 +39,27 @@ export default function Navbar() {
 
         <div className="hidden md:flex items-center gap-5">
           {currentUser ? (
-            <button onClick={logout} className="text-gray-900 dark:text-white hover:text-red-500 dark:hover:text-red-400">
-              <User className="w-6 h-6" />
-            </button>
+            <Link to="/profile" className="text-gray-900 dark:text-white hover:text-green-500">
+              {currentUser.photoURL ? (
+                <img
+                  src={currentUser.photoURL}
+                  alt="profile"
+                  className="w-8 h-8 rounded-full object-cover border"
+                />
+              ) : (
+                <User className="w-6 h-6" />
+              )}
+            </Link>
           ) : (
-            <Link to="/login" className="text-gray-900 dark:text-white hover:text-green-500 dark:hover:text-green-400">
+            <Link to="/login" className="text-gray-900 dark:text-white">
               <User className="w-6 h-6" />
             </Link>
           )}
 
-          <Link to="/cart" className="relative text-gray-900 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400">
+          <Link
+            to="/cart"
+            className="relative text-gray-900 dark:text-white hover:text-yellow-500 dark:hover:text-yellow-400"
+          >
             <ShoppingCart className="w-6 h-6" />
             {cartItemCount > 0 && (
               <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
@@ -58,11 +68,17 @@ export default function Navbar() {
             )}
           </Link>
 
-          <Link to="/orders" className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400">
+          <Link
+            to="/orders"
+            className="text-gray-900 dark:text-white hover:text-blue-500 dark:hover:text-blue-400"
+          >
             <Truck className="w-6 h-6" />
           </Link>
 
-          <button onClick={toggleTheme} className="text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400">
+          <button
+            onClick={toggleTheme}
+            className="text-gray-900 dark:text-white hover:text-gray-500 dark:hover:text-gray-400"
+          >
             {dark ? <Sun className="w-6 h-6" /> : <Moon className="w-6 h-6" />}
           </button>
         </div>
@@ -79,16 +95,31 @@ export default function Navbar() {
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 150, opacity: 0 }}
             transition={{ duration: 0.25 }}
-            className="md:hidden fixed top-20 right-5 z-50 w-20 p-5 rounded-xl shadow-xl border border-white/20 backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 flex flex-col gap-4 text-gray-900 dark:text-white"
+            className="md:hidden fixed top-20 right-5 z-50 w-28 p-5 rounded-xl shadow-xl border border-white/20 backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 flex flex-col gap-4 text-gray-900 dark:text-white"
           >
             {currentUser ? (
-              <button onClick={() => { logout(); toggleMenu(); }}>Logout</button>
+              <>
+                <Link to="/profile" onClick={toggleMenu}>
+                  Profile
+                </Link>
+                <button
+                  onClick={() => {
+                    logout();
+                    toggleMenu();
+                  }}
+                  className="text-red-400"
+                >
+                  Logout
+                </button>
+              </>
             ) : (
               <Link to="/login" onClick={toggleMenu}>
-               <User className="w-5 h-5" /></Link>
+                <User className="w-5 h-5" />
+              </Link>
             )}
+
             <Link to="/cart" onClick={toggleMenu} className="flex items-center gap-2">
-            <ShoppingCart className="w-5 h-5" />
+              <ShoppingCart className="w-5 h-5" />
               {cartItemCount > 0 && (
                 <span className="bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
                   {cartItemCount}
@@ -96,7 +127,7 @@ export default function Navbar() {
               )}
             </Link>
             <Link to="/orders" onClick={toggleMenu} className="flex items-center gap-2">
-            <Truck className="w-5 h-5" />
+              <Truck className="w-5 h-5" />
             </Link>
             <button onClick={toggleTheme} className="flex items-center gap-2">
               {dark ? <Sun className="w-5 h-5" /> : <Moon className="w-5 h-5" />}

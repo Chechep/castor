@@ -1,38 +1,49 @@
 import { createContext, useContext, useState, useEffect } from "react";
 import {
-  getAuth,
   onAuthStateChanged,
   signInWithEmailAndPassword,
   createUserWithEmailAndPassword,
   sendPasswordResetEmail,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup,
+  updateProfile
 } from "firebase/auth";
 import { auth } from "../firebase";
 
 const AuthContext = createContext();
 
-// ---- MAIN AUTH PROVIDER ----
 export function AuthProvider({ children }) {
   const [currentUser, setCurrentUser] = useState(null);
   const [loading, setLoading] = useState(true);
 
-  // Track user login state
+  const googleProvider = new GoogleAuthProvider();
+
   useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       setCurrentUser(user);
       setLoading(false);
     });
-
     return unsubscribe;
   }, []);
 
-  // Auth functions
-  function login(email, password) {
+  // ✅ Email signup
+  async function signupUser(email, password, fullName) {
+    const res = await createUserWithEmailAndPassword(auth, email, password);
+    if (fullName) {
+      await updateProfile(res.user, { displayName: fullName });
+    }
+    return res.user;
+  }
+
+  // ✅ Email login
+  function loginUser(email, password) {
     return signInWithEmailAndPassword(auth, email, password);
   }
 
-  function signup(email, password) {
-    return createUserWithEmailAndPassword(auth, email, password);
+  // ✅ Google login/signup
+  function googleLogin() {
+    return signInWithPopup(auth, googleProvider);
   }
 
   function resetPassword(email) {
@@ -45,8 +56,9 @@ export function AuthProvider({ children }) {
 
   const value = {
     currentUser,
-    login,
-    signup,
+    signupUser,
+    loginUser,
+    googleLogin,
     resetPassword,
     logout,
   };
@@ -58,7 +70,6 @@ export function AuthProvider({ children }) {
   );
 }
 
-// Hook to use context easily
 export function useAuth() {
   return useContext(AuthContext);
 }

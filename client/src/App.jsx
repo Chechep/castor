@@ -1,4 +1,4 @@
-import { Routes, Route } from "react-router-dom";
+import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
 import Home from "./pages/Home";
@@ -11,14 +11,20 @@ import Feature from "./pages/Feature";
 import About from "./pages/About";
 import Cashout from "./pages/Checkout";
 import TermsAndPolicies from "./pages/TermsAndPolicies";
-import { Toaster } from "react-hot-toast";
 import Orders from "./pages/Orders";
 import TrackOrder from "./pages/TrackOrder";
+import Profile from "./pages/Profile";
+import { Toaster } from "react-hot-toast";
+import { useAuth } from "./context/AuthContext";
+
+function PrivateRoute({ children }) {
+  const { currentUser } = useAuth();
+  return currentUser ? children : <Navigate to="/login" />;
+}
 
 export default function App() {
   return (
     <div className="min-h-screen flex flex-col bg-white dark:bg-black text-black dark:text-white">
-
       <Toaster position="top-right" />
 
       <Navbar />
@@ -37,6 +43,14 @@ export default function App() {
           <Route path="/terms" element={<TermsAndPolicies />} />
           <Route path="/orders" element={<Orders />} />
           <Route path="/track" element={<TrackOrder />} />
+          <Route
+            path="/profile"
+            element={
+              <PrivateRoute>
+                <Profile />
+              </PrivateRoute>
+            }
+          />
         </Routes>
       </main>
 
