@@ -28,7 +28,7 @@ export const products = [
   {
     id: 6,
     name: "Anti-Blemish Oil",
-    price: 1100,
+    price: 950,
     size: "200ml",
     image: blemish,
     description: "Fades marks and evens tone with castor."
@@ -52,7 +52,7 @@ export const products = [
   {
     id: 7,
     name: "Body Butter",
-    price: 1050,
+    price: 850,
     size: "170g",
     image: butter,
     description: "Ultra hydration blend with castor."

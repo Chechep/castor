@@ -1,6 +1,7 @@
 import { Link, useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
 import { useCart } from "../context/CartContext";
+import { useOrders } from "../hooks/useOrders";
 import {
   ShoppingCart,
   User,
@@ -8,32 +9,49 @@ import {
   Moon,
   Home,
   Menu,
-  X,
   Truck,
+  X,
   LogOut,
+  Bell,
 } from "lucide-react";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Notifications from "../pages/Notifications";
 
 export default function Navbar() {
   const { currentUser, logout } = useAuth();
   const { cartItems } = useCart();
+  const { unreadCount } = useOrders();
   const navigate = useNavigate();
 
   const [dark, setDark] = useState(localStorage.getItem("theme") === "dark");
   const [open, setOpen] = useState(false);
   const [confirmLogout, setConfirmLogout] = useState(false);
+  const [showNotifications, setShowNotifications] = useState(false);
+
+  const audioRef = useRef(null);
+  const prevUnread = useRef(unreadCount);
 
   const cartItemCount = cartItems.reduce(
     (total, item) => total + item.quantity,
     0
   );
 
+  /* ================= THEME ================= */
   useEffect(() => {
     document.documentElement.classList.toggle("dark", dark);
     localStorage.setItem("theme", dark ? "dark" : "light");
   }, [dark]);
 
+  /* ================= NOTIFICATION SOUND ================= */
+  useEffect(() => {
+    if (unreadCount > prevUnread.current && audioRef.current) {
+      audioRef.current.play().catch(() => {});
+    }
+    prevUnread.current = unreadCount;
+  }, [unreadCount]);
+
+  /* ================= LOGOUT ================= */
   const handleLogout = async () => {
     try {
       await logout();
@@ -46,16 +64,24 @@ export default function Navbar() {
 
   return (
     <>
+      {/* Sound */}
+      <audio ref={audioRef} src="/notification.mp3" preload="auto" />
+
+      {/* ================= NAVBAR ================= */}
       <header className="fixed top-4 left-1/2 -translate-x-1/2 z-50 w-[95%] flex justify-between items-center px-6 py-3 rounded-2xl backdrop-blur-xl bg-white/10 dark:bg-gray-900/10 shadow-lg">
+        {/* Left */}
         <Link to="/">
           <Home className="w-7 h-7" />
         </Link>
 
+        {/* Center */}
         <div className="absolute left-1/2 -translate-x-1/2 font-bold">
           Essence of Risin
         </div>
 
+        {/* Desktop Right */}
         <div className="hidden md:flex gap-5 items-center">
+          {/* Profile */}
           {currentUser ? (
             <Link to="/profile">
               {currentUser.photoURL ? (
@@ -74,39 +100,50 @@ export default function Navbar() {
             </Link>
           )}
 
+          {/* Cart */}
           <Link to="/cart" className="relative">
             <ShoppingCart />
-            {cartItemCount > 0 && (
-              <span className="absolute -top-2 -right-2 w-5 h-5 text-xs bg-red-500 text-white rounded-full flex items-center justify-center">
-                {cartItemCount}
-              </span>
-            )}
+            <AnimatePresence>
+              {cartItemCount > 0 && (
+                <motion.span
+                  initial={{ scale: 0 }}
+                  animate={{ scale: 1 }}
+                  exit={{ scale: 0 }}
+                  className="absolute -top-2 -right-2 w-5 h-5 text-xs bg-red-500 text-white rounded-full flex items-center justify-center"
+                >
+                  {cartItemCount}
+                </motion.span>
+              )}
+            </AnimatePresence>
           </Link>
 
           <Link to="/orders">
             <Truck />
           </Link>
 
+          {/* Theme */}
           <button onClick={() => setDark(!dark)}>
             {dark ? <Sun /> : <Moon />}
           </button>
         </div>
 
+        {/* Mobile Toggle */}
         <button className="md:hidden" onClick={() => setOpen(!open)}>
           {open ? <X /> : <Menu />}
         </button>
       </header>
 
-      {/* Mobile Menu */}
+      {/* ================= MOBILE MENU ================= */}
       <AnimatePresence>
         {open && (
           <motion.div
             initial={{ x: 120, opacity: 0 }}
             animate={{ x: 0, opacity: 1 }}
             exit={{ x: 120, opacity: 0 }}
-            className="md:hidden fixed top-20 right-5 z-50 p-5 w-40 rounded-xl backdrop-blur-xl bg-white/10 dark:bg-gray-900/10"
+            className="md:hidden fixed top-20 right-6 z-50 p-5 rounded-xl backdrop-blur-xl bg-white/10 dark:bg-gray-900/10"
           >
-            <div className="grid grid-cols-2 gap-6 place-items-center">
+            <div className="flex flex-col gap-4 items-center">
+
               <Link to="/profile" onClick={() => setOpen(false)}>
                 <User />
               </Link>
@@ -139,7 +176,7 @@ export default function Navbar() {
         )}
       </AnimatePresence>
 
-      {/* Logout Confirmation */}
+      {/* ================= LOGOUT CONFIRM ================= */}
       <AnimatePresence>
         {confirmLogout && (
           <motion.div

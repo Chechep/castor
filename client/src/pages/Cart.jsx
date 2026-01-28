@@ -40,7 +40,7 @@ export default function Cart() {
           <p className="text-xl text-gray-600 dark:text-gray-400 mb-4">Your cart is empty</p>
           <Link
             to="/products"
-            className="bg-black text-white px-6 py-2 rounded-lg hover:bg-gray-600"
+            className="bg-black dark:bg-white text-white dark:text-black px-6 py-2 rounded-lg hover:bg-gray-600 dark:hover:bg-gray-300 font-semibold"
           >
             Continue Shopping
           </Link>
@@ -57,7 +57,6 @@ export default function Cart() {
                 alt={item.name}
                 className="w-20 h-20 object-cover rounded-lg"
               />
-              
               <div className="flex-1">
                 <h3 className="font-semibold">{item.name}</h3>
                 <p className="text-gray-600 dark:text-gray-400">Ksh {item.price}</p>
@@ -70,9 +69,7 @@ export default function Cart() {
                 >
                   <Minus className="w-4 h-4" />
                 </button>
-                
                 <span className="font-medium w-8 text-center">{item.quantity}</span>
-                
                 <button
                   onClick={() => increaseQuantity(item)}
                   className="p-1 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700"
@@ -98,7 +95,6 @@ export default function Cart() {
             <div className="flex justify-between items-center mb-6">
               <span className="text-xl font-bold">Total: Ksh. {totalAmount}</span>
             </div>
-            
             <Link
               to="/checkout"
               className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg hover:bg-gray-700 text-lg font-semibold text-center block"

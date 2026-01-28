@@ -1,6 +1,7 @@
 import { Routes, Route, Navigate } from "react-router-dom";
 import Navbar from "./components/Navbar";
 import Footer from "./components/Footer";
+
 import Home from "./pages/Home";
 import Products from "./pages/Products";
 import Login from "./pages/Login";
@@ -14,12 +15,14 @@ import TermsAndPolicies from "./pages/TermsAndPolicies";
 import Orders from "./pages/Orders";
 import TrackOrder from "./pages/TrackOrder";
 import Profile from "./pages/Profile";
+import Notifications from "./pages/Notifications";
+
 import { Toaster } from "react-hot-toast";
 import { useAuth } from "./context/AuthContext";
 
 function PrivateRoute({ children }) {
   const { currentUser } = useAuth();
-  return currentUser ? children : <Navigate to="/login" />;
+  return currentUser ? children : <Navigate to="/login" replace />;
 }
 
 export default function App() {
@@ -31,6 +34,7 @@ export default function App() {
 
       <main className="flex-1 w-full">
         <Routes>
+          {/* Public routes */}
           <Route path="/" element={<Home />} />
           <Route path="/products" element={<Products />} />
           <Route path="/cart" element={<Cart />} />
@@ -41,8 +45,35 @@ export default function App() {
           <Route path="/about" element={<About />} />
           <Route path="/checkout" element={<Cashout />} />
           <Route path="/terms" element={<TermsAndPolicies />} />
-          <Route path="/orders" element={<Orders />} />
-          <Route path="/track" element={<TrackOrder />} />
+
+          {/* Protected routes */}
+          <Route
+            path="/orders"
+            element={
+              <PrivateRoute>
+                <Orders />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/track"
+            element={
+              <PrivateRoute>
+                <TrackOrder />
+              </PrivateRoute>
+            }
+          />
+
+          <Route
+            path="/notifications"
+            element={
+              <PrivateRoute>
+                <Notifications />
+              </PrivateRoute>
+            }
+          />
+
           <Route
             path="/profile"
             element={
@@ -51,6 +82,9 @@ export default function App() {
               </PrivateRoute>
             }
           />
+
+          {/* Fallback */}
+          <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
       </main>
 

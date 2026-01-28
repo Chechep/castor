@@ -81,7 +81,7 @@ export default function Checkout() {
 
   if (checkoutStep === "complete") {
     return (
-      <div className="p-6 max-w-2xl mx-auto text-center">
+      <div className="p-20 max-w-2xl mx-auto text-center">
         <div className="bg-green-100 dark:bg-green-900 p-6 rounded-lg">
           <div className="flex justify-center mb-4">
             <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-300" />
@@ -112,7 +112,7 @@ export default function Checkout() {
   }
 
   return (
-    <div className="p-6 max-w-4xl mx-auto">
+    <div className="p-20 max-w-4xl mx-auto">
       {/* Back Button */}
       <button
         onClick={() => navigate(-1)}
@@ -125,7 +125,7 @@ export default function Checkout() {
       <h1 className="text-2xl font-bold mb-6">Checkout</h1>
 
       {/* Order Summary */}
-      <div className="mb-8 p-4 border rounded-lg bg-white dark:bg-gray-800">
+      <div className="mb-8 p-4 rounded-lg bg-white dark:bg-gray-900">
         <h3 className="text-lg font-semibold mb-4">Order Summary</h3>
         {displayItems.length === 0 ? (
           <p className="text-gray-500 dark:text-gray-400 text-center py-4">
@@ -149,7 +149,7 @@ export default function Checkout() {
             </div>
           ))
         )}
-        <div className="flex justify-between items-center pt-4 mt-2 border-t">
+        <div className="flex justify-between items-center pt-4 mt-2 border-">
           <span className="text-lg font-bold">Total:</span>
           <span className="text-lg font-bold">Ksh. {totalAmount}</span>
         </div>
@@ -170,7 +170,7 @@ export default function Checkout() {
           <h3 className="text-lg font-semibold">Payment Method</h3>
 
           <div className="space-y-3">
-            <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-200">
+            <label className="flex items-center p-4 rounded-lg cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-200">
               <input type="radio" name="payment" value="mpesa" checked={paymentMethod === "mpesa"} onChange={(e) => setPaymentMethod(e.target.value)} className="mr-3" />
               <div className="items-center gap-2">
                 <span className="text-sm font-medium">M-Pesa</span>
@@ -178,7 +178,7 @@ export default function Checkout() {
               </div>
             </label>
 
-            <label className="flex items-center p-4 border rounded-lg cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-200">
+            <label className="flex items-center p-4 rounded-lg cursor-pointer hover:bg-gray-300 dark:hover:bg-gray-700 transition duration-200">
               <input type="radio" name="payment" value="card" checked={paymentMethod === "card"} onChange={(e) => setPaymentMethod(e.target.value)} className="mr-3" />
               <div className="items-center gap-2">
                 <span className="text-sm font-medium">Credit/Debit Card</span>
@@ -209,7 +209,7 @@ export default function Checkout() {
           )}
 
           {paymentMethod === "mpesa" && !loading && (
-            <div className="p-4 bg-blue-50 dark:bg-blue-900 rounded-lg">
+            <div className="p-4 bg-emerald-100 dark:bg-emerald-900 rounded-lg">
               <label className="block text-sm font-medium mb-2">M-Pesa Phone Number</label>
               <input type="tel" placeholder="07XX XXX XXX" value={mpesaNumber} onChange={(e) => setMpesaNumber(e.target.value)} className="w-full p-3 border rounded-lg dark:bg-gray-800 dark:border-gray-700 focus:outline-none focus:ring-2 focus:ring-gray-500" />
             </div>
