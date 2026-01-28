@@ -28,3 +28,5 @@ img {
 .animate-floating-right {
   animation: floatRight 10s ease-in-out infinite;
 }
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&display=swap');

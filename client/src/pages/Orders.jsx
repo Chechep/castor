@@ -64,7 +64,6 @@ export default function Orders() {
                 onClick={() => trackOrder(order.id)}
                 className="flex items-center gap-2 bg-emerald-600 text-white px-4 py-2 rounded-lg hover:bg-emerald-700"
               >
-                <Truck size={18} />
                 Track Order
               </button>
             </div>

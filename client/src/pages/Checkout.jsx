@@ -229,7 +229,8 @@ export default function Checkout() {
           </div>
 
           <div className="border-t pt-4">
-            <button onClick={handlePayment} disabled={!paymentMethod || !customerInfo.name || !customerInfo.phone || (paymentMethod === "mpesa" && !mpesaNumber) || !agreeToTerms || displayItems.length === 0 || loading} className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg hover:bg-gray-800 dark:hover:bg-gray-200 disabled:bg-gray-400 disabled:cursor-not-allowed transition duration-200 font-semibold transform hover:scale-[0.98]">
+            <button onClick={handlePayment} disabled={!paymentMethod || !customerInfo.name || !customerInfo.phone || (paymentMethod === "mpesa" && !mpesaNumber) || !agreeToTerms || displayItems.length === 0 || loading} 
+            className="w-full bg-black dark:bg-white text-white dark:text-black py-3 rounded-lg hover:bg-gray-600 dark:hover:bg-gray-400 disabled:bg-gray-400 disabled:cursor-not-allowed transition duration-200 font-semibold transform hover:scale-[0.98]">
               Complete Payment
             </button>
           </div>

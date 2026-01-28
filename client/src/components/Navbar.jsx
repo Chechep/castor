@@ -75,7 +75,7 @@ export default function Navbar() {
         </Link>
 
         {/* Center */}
-        <div className="absolute left-1/2 -translate-x-1/2 font-bold">
+        <div className="absolute left-1/2 -translate-x-1/2 font-bold font-montserrat">
           Essence of Risin
         </div>
 
